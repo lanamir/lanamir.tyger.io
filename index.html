@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Object</title>
+    </head>
+    <body>
+		<script>
+			let tyger = {
+				tygerImage: 'img/cat.png',
+				tygerAudio: 'audio/t-rex-roar.mp3',  //проверить слеш
+				
+				tygerAppear: function(tygerNumber) {
+					while(tygerNumber>0){
+						let img = new Image(100,100);
+						img.src = this.tygerImage;
+						document.body.append(img);
+						
+						let audio = new Audio(this.tygerAudio);
+						document.body.append(audio);
+						img.addEventListener('mouseenter', function(event){
+							audio.play();
+						})
+						tygerNumber--;//декремент
+					}
+				
+				},
+			}
+			tyger.tygerAppear(5)//вызываем метод tygerAppear объекта tyger 
+		</script>
+	
+	</body>
+</html>
